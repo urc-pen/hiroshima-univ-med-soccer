@@ -47,7 +47,8 @@ export default {
 </script>
 <style scoped>
 .form-size {
-  margin: 50px;
+  margin: 30px;
+  margin-top: 10px;
 }
 .button-text {
   white-space: nowrap;
