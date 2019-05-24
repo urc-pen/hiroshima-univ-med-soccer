@@ -13,7 +13,9 @@
             <td width="100" height="50" style="text-align: center;">
               {{ number }}
             </td>
-            <td width="100" style="text-align: center;">{{ position }}</td>
+            <td width="100" style="text-align: center; whitespace: nowrap;">
+              {{ position }}
+            </td>
             <td colspan="2" width="230" style="text-align: center;">
               {{ faculty }}
             </td>
