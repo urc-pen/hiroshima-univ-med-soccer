@@ -2,7 +2,7 @@
   <div>
     <common-header />
     <div class="container-fluid container-slug">
-      <table border style="margin-left: auto; margin-right: auto;">
+      <table border style="margin-left: auto; margin-right: auto; height: auto">
         <tbody>
           <tr>
             <th colspan="5" width="580" height="50" style="text-align: center;">
