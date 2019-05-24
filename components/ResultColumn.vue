@@ -40,7 +40,4 @@ export default {
 }
 </script>
 <style scoped>
-.text {
-  white-space: nowrap;
-}
 </style>

@@ -9,7 +9,7 @@
         target="_blank"
         :href="buhou.fields.buhoupdf.fields.file.url"
       >
-        部報はこちら
+        最新の部報はこちら
       </b-button>
       <b-button
         class="facebook-button"
