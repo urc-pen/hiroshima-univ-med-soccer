@@ -46,6 +46,9 @@
         ></script>
       </div>
     </div>
+    <footer class="text-center">
+      <font color="#cfd2d6">created by S.Urushidani</font>
+    </footer>
   </div>
 </template>
 
