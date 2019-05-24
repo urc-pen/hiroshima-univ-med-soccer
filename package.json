@@ -1,7 +1,7 @@
 {
   "name": "hiroshima-univ-med-soccer",
   "version": "1.0.0",
-  "description": "My magnificent Nuxt.js project",
+  "description": "広島大学医学部サッカー部のHPです",
   "author": "S.urushidani",
   "private": true,
   "scripts": {
