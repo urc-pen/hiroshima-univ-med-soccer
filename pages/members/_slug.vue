@@ -46,6 +46,11 @@
         </tbody>
       </table>
     </div>
+    <div class="slug-buck-button text-center">
+      <nuxt-link class="btn btn-outline-success" role="button" to="/members">
+        一覧に戻る
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -91,6 +96,9 @@ export default {
 </script>
 
 <style scoped>
+.slug-buck-button {
+  white-space: nowrap;
+}
 .container-slug {
   margin-top: 50px;
   padding: 20px;
