@@ -70,6 +70,9 @@ export default {
 }
 </script>
 <style>
+.buho-button {
+  white-space: nowrap;
+}
 .facebook-button {
   margin: 20px;
 }
