@@ -34,7 +34,11 @@
         </template>
         <template slot="lead">
           <div class="text-center">
-            <table border="2" style="margin-left: auto; margin-right: auto;">
+            <table
+              border="2"
+              bordercolor="white"
+              style="margin-left: auto; margin-right: auto;"
+            >
               <tbody>
                 <tr>
                   <td width="100" style="text-align: center;">4月</td>
