@@ -97,6 +97,7 @@ export default {
 
 <style scoped>
 .slug-buck-button {
+  margin-bottom: 20px;
   white-space: nowrap;
 }
 .container-slug {
