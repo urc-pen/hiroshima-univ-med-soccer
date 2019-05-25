@@ -52,6 +52,11 @@
         </tbody>
       </table>
     </div>
+    <div class="slug-result-button text-center">
+      <nuxt-link class="btn btn-outline-success" role="button" to="/results">
+        一覧に戻る
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -112,5 +117,9 @@ export default {
   margin-top: 50px;
   padding: 20px;
   max-width: 1000px;
+}
+.slug-result-button {
+  margin-bottom: 20px;
+  white-space: nowrap;
 }
 </style>
