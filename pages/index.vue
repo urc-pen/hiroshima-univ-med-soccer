@@ -5,14 +5,19 @@
       <img src="~/assets/aramakijump.png" alt="" />
     </div>
     <div class="container-fluid text-center under-aramaki">
-      <h3 class="text-yusho">
-        <span>
-          Hiroshima University
-        </span>
-        <span>
-          Medical Soccer Club
-        </span>
-      </h3>
+      <div class="text-yusho">
+        <h4>
+          広島大学医学部サッカー部
+        </h4>
+        <h3>
+          <span>
+            Hiroshima University
+          </span>
+          <span>
+            Medical Soccer Club
+          </span>
+        </h3>
+      </div>
       <h5 class="text-members">
         <span class="mgr">主将：{{ represents.fields.captain }}</span
         ><span>主務：{{ represents.fields.manager }}</span>
