@@ -53,7 +53,7 @@ export default {
   ],
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://example.com',  
+    hostname: 'https://hiroshima-u-medical-soccer.netlify.com',  
     generate: true,  // nuxt generateで静的にした際にも、サイトマップを生成する設定
     exclude: [],
     routes() {
