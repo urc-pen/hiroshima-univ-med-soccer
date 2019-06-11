@@ -21,6 +21,11 @@
         >
           More
         </nuxt-link>
+        <nuxt-link
+          class="btn-card"
+          role="button"
+          :to="{ name: 'members-slug', params: { slug: id } }"
+        />
       </div>
     </b-card>
   </div>
@@ -52,5 +57,30 @@ export default {
 .text {
   white-space: nowrap;
   margin-bottom: 0.7rem;
+}
+.card-dayo {
+  position: relative;
+  z-index: 1;
+}
+.btn {
+  position: relative;
+  z-index: 3;
+}
+.btn-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-indent: -999px;
+  z-index: 2;
+}
+.card-dayo:hover {
+  filter: alpha(opacity=70); /* IE 6,7*/
+  -ms-filter: 'alpha(opacity=70)'; /* IE 8,9 */
+  -moz-opacity: 0.7; /* FF , Netscape */
+  -khtml-opacity: 0.7; /* Safari 1.x */
+  opacity: 0.7;
+  zoom: 1; /*IE*/
 }
 </style>
