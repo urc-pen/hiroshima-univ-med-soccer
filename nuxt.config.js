@@ -51,6 +51,14 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap'
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://example.com',  
+    generate: true,  // nuxt generateで静的にした際にも、サイトマップを生成する設定
+    exclude: [],
+    routes() {
+    }
+  },
   /*
    ** Axios module configuration
    */
