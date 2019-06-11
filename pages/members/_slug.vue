@@ -2,7 +2,10 @@
   <div>
     <common-header />
     <div class="container-fluid container-slug">
-      <table border style="margin-left: auto; margin-right: auto;">
+      <table
+        border
+        style="margin-left: auto; margin-right: auto; table-layout: fixed;"
+      >
         <tbody>
           <tr>
             <th colspan="5" width="580" height="50" style="text-align: center;">
@@ -41,8 +44,10 @@
           </tr>
           <tr>
             <td colspan="5" width="580" height="150" class="text-center">
-              <!-- eslint-disable-next-line vue/no-v-html -->
-              <span v-html="introduction" />
+              <p style="margin: 10px;">
+                <!-- eslint-disable-next-line vue/no-v-html -->
+                <span v-html="introduction" />
+              </p>
             </td>
           </tr>
         </tbody>
