@@ -29,12 +29,12 @@
             <td>{{ soscore }}</td>
           </tr>
           <tr align="left" valign="top">
-            <td colspan="4">
+            <td colspan="3">
               <p>[得点者]</p>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span style="line-height: 0.5;" v-html="goaler" />
             </td>
-            <td colspan="3">
+            <td colspan="4">
               <p>[警告・退場]</p>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span style="line-height: 0.5;" v-html="fauls" />
