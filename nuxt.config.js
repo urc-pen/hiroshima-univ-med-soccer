@@ -55,12 +55,10 @@ export default {
     path: '/sitemap.xml',
     hostname: 'https://hiroshima-u-medical-soccer.netlify.com',  
     generate: true,  // nuxt generateで静的にした際にも、サイトマップを生成する設定
-    exclude: [],
-    routes() {
-    }
+    exclude: []
   },
   /*
-   ** Axios module configuration
+   ** Axios module sconfiguration
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
