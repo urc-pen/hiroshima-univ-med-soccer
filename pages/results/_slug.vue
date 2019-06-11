@@ -30,23 +30,28 @@
           </tr>
           <tr align="left" valign="top">
             <td colspan="5">
-              得点者<br />
-              <br />
+              [得点者]<br />
               {{ goaler }}
             </td>
             <td colspan="2">
-              警告・退場<br />
-              <br />
+              [警告・退場]<br />
               {{ fauls }}
             </td>
           </tr>
           <tr align="left" valign="top">
             <td colspan="7">
-              メンバー<br />
+              [メンバー]<br />
               GK）{{ GK }}<br />
               DF）{{ DF }}<br />
               MF）{{ MF }}<br />
               FW）{{ FW }}<br />
+            </td>
+          </tr>
+          <tr align="left" valign="top">
+            <td colspan="7">
+              [その他]<br />
+              <!-- eslint-disable-next-line vue/no-v-html -->
+              <span v-html="etc" />
             </td>
           </tr>
         </tbody>
@@ -63,6 +68,7 @@
 <script>
 import Header from '~/components/Header'
 import contentful from '~/plugins/contentful'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 const client = contentful.createClient()
 
@@ -104,7 +110,8 @@ export default {
           FW: result.fields.fw,
           fauls: result.fields.fauls,
           goaler: result.fields.goaler,
-          weather: result.fields.weather
+          weather: result.fields.weather,
+          etc: documentToHtmlString(result.fields.etc)
         }
       })
       .catch()
