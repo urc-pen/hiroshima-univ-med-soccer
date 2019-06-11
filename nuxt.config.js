@@ -16,7 +16,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: '広島大学医学部サッカー部',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
