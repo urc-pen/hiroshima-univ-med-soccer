@@ -26,12 +26,51 @@
         ご連絡は主務まで
       </h5>
     </div>
-    <div class="schedule">
-      <h4 class="text-center">
-        <b>今後の日程（{{ scheduleFields.month }}）</b>
-      </h4>
-      <div v-if="calendarUrl" class="calender text-center">
-        <b-img :src="calendarUrl" />
+    <div class="instagram-section">
+      <div class="instagram-copy text-center">
+        <p class="instagram-label">
+          Instagram
+        </p>
+        <h4>
+          <b>日々の活動はこちらで更新中</b>
+        </h4>
+        <p class="instagram-description">
+          練習風景や試合、新歓情報などは Instagram で発信しています。
+        </p>
+        <a
+          class="btn btn-outline-success instagram-button"
+          :href="instagramUrl"
+          target="_blank"
+          rel="noopener"
+        >
+          @{{ instagramHandle }} を見る
+        </a>
+      </div>
+      <div class="instagram-widget">
+        <iframe
+          v-if="instagramWidgetUrl"
+          title="Instagram feed"
+          :src="instagramWidgetUrl"
+          scrolling="no"
+          allowtransparency="true"
+        />
+        <a
+          v-else
+          class="instagram-fallback"
+          :href="instagramUrl"
+          target="_blank"
+          rel="noopener"
+        >
+          <span
+            v-for="tile in instagramTiles"
+            :key="tile"
+            class="instagram-tile"
+          />
+          <span class="instagram-fallback-text">
+            Instagram feed<br />
+            @{{ instagramHandle }}
+          </span>
+        </a>
       </div>
     </div>
     <footer class="text-center">
@@ -50,31 +89,27 @@ export default {
   components: {
     'common-header': Header
   },
+  data() {
+    return {
+      instagramHandle: 'hiromedsoccer',
+      instagramTiles: [1, 2, 3, 4, 5, 6]
+    }
+  },
   computed: {
-    scheduleFields() {
-      return (this.schedule && this.schedule.fields) || {}
-    },
     representsFields() {
       return (this.represents && this.represents.fields) || {}
     },
-    calendarUrl() {
-      const calendar = this.scheduleFields.calender
-      if (!calendar || !calendar.fields || !calendar.fields.file) {
-        return ''
-      }
-      return calendar.fields.file.url
+    instagramUrl() {
+      return `https://www.instagram.com/${this.instagramHandle}/`
     }
   },
   async asyncData({ env }) {
-    const schedule = await client.getEntries({
-      content_type: 'schedule'
-    })
     const represets = await client.getEntries({
       content_type: 'represets'
     })
     return {
-      schedule: schedule.items[0],
-      represents: represets.items[0]
+      represents: represets.items[0],
+      instagramWidgetUrl: env.INSTAGRAM_WIDGET_URL
     }
   }
 }
@@ -86,13 +121,6 @@ export default {
 .under-aramaki {
   margin-top: -50px;
   background-image: linear-gradient(-90deg, #185352, #331849);
-}
-.calender {
-  max-width: 1000px;
-  margin: auto;
-}
-.schedule {
-  margin: 30px;
 }
 .mgr {
   margin-right: 20px;
@@ -116,6 +144,73 @@ img {
 }
 .janitor {
   margin: 5rem;
+}
+.instagram-section {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.75fr) minmax(280px, 1.25fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 36px auto;
+  padding: 0 20px;
+  align-items: center;
+}
+.instagram-copy {
+  padding: 20px 8px;
+}
+.instagram-label {
+  margin-bottom: 8px;
+  color: #185352;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.instagram-description {
+  margin: 14px 0 20px;
+  color: #4d5b66;
+}
+.instagram-button {
+  white-space: nowrap;
+}
+.instagram-widget {
+  min-height: 320px;
+}
+.instagram-widget iframe {
+  width: 100%;
+  min-height: 360px;
+  border: 0;
+  overflow: hidden;
+}
+.instagram-fallback {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  min-height: 320px;
+  padding: 8px;
+  overflow: hidden;
+  background-image: linear-gradient(-90deg, #185352, #331849);
+  text-decoration: none;
+}
+.instagram-tile {
+  min-height: 148px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    url('~/assets/aramakijump.png') center / cover;
+  filter: saturate(0.9);
+}
+.instagram-fallback-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
 }
 span {
   display: inline-block;
@@ -158,6 +253,20 @@ span {
 @keyframes img-wrap-after {
   100% {
     transform: translateY(-100%);
+  }
+}
+@media (max-width: 767px) {
+  .instagram-section {
+    grid-template-columns: 1fr;
+    margin: 28px auto;
+  }
+  .instagram-widget,
+  .instagram-widget iframe,
+  .instagram-fallback {
+    min-height: 280px;
+  }
+  .instagram-tile {
+    min-height: 128px;
   }
 }
 </style>
