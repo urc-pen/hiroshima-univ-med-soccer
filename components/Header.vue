@@ -27,7 +27,7 @@
           <b-nav-item to="/results" :class="{ active: resultsIsActive }">
             Results
           </b-nav-item>
-          <b-nav-item to="/Link" :class="{ active: linkIsActive }">
+          <b-nav-item to="/link" :class="{ active: linkIsActive }">
             Link
           </b-nav-item>
         </b-navbar-nav>
