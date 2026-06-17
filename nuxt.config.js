@@ -61,7 +61,10 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { hid: 'canonical', rel: 'canonical', href: `${siteUrl}/` }
+    ]
   },
 
   /*
@@ -93,7 +96,15 @@ export default {
   sitemap: {
     path: '/sitemap.xml',
     hostname: siteUrl,
-    exclude: []
+    routes: ['/'],
+    exclude: [
+      '/about',
+      '/link',
+      '/members',
+      '/members/**',
+      '/results',
+      '/results/**'
+    ]
   },
   generate: {
     fallback: '404.html',

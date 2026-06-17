@@ -125,8 +125,12 @@
 
 <script>
 import Header from '~/components/Header'
+import { homepageOnlySearchHead } from '~/utils/seo'
 
 export default {
+  head() {
+    return homepageOnlySearchHead
+  },
   components: {
     'common-header': Header
   }

@@ -21,10 +21,14 @@
 import { createClient } from '~/plugins/contentful.js'
 import ResultColumn from '~/components/ResultColumn'
 import Header from '~/components/Header'
+import { homepageOnlySearchHead } from '~/utils/seo'
 
 const client = createClient()
 
 export default {
+  head() {
+    return homepageOnlySearchHead
+  },
   components: {
     'result-column': ResultColumn,
     'common-header': Header

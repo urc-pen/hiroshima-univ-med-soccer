@@ -25,10 +25,14 @@ import { createClient } from '~/plugins/contentful.js'
 import Card from '~/components/Card'
 import Header from '~/components/Header'
 import SelectForm from '~/components/SelectForm'
+import { homepageOnlySearchHead } from '~/utils/seo'
 
 const client = createClient()
 
 export default {
+  head() {
+    return homepageOnlySearchHead
+  },
   components: {
     'member-card': Card,
     'common-header': Header,

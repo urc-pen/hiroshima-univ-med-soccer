@@ -65,10 +65,14 @@
 import Header from '~/components/Header'
 import contentful from '~/plugins/contentful'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { homepageOnlySearchHead } from '~/utils/seo'
 const client = contentful.createClient()
 
 export default {
   transition: 'slide-right',
+  head() {
+    return homepageOnlySearchHead
+  },
   components: {
     'common-header': Header
   },

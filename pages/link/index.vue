@@ -55,10 +55,14 @@
 <script>
 import Header from '~/components/Header'
 import { createClient } from '~/plugins/contentful.js'
+import { homepageOnlySearchHead } from '~/utils/seo'
 
 const client = createClient()
 
 export default {
+  head() {
+    return homepageOnlySearchHead
+  },
   components: {
     'common-header': Header
   },
