@@ -19,8 +19,8 @@
         </h3>
       </div>
       <h5 class="text-members">
-        <span class="mgr">主将：{{ represents.fields.captain }}</span
-        ><span>主務：{{ represents.fields.manager }}</span>
+        <span class="mgr">主将：{{ representsFields.captain }}</span
+        ><span>主務：{{ representsFields.manager }}</span>
       </h5>
       <h5 class="text-members">
         ご連絡は主務まで
@@ -28,10 +28,10 @@
     </div>
     <div class="schedule">
       <h4 class="text-center">
-        <b>今後の日程（{{ schedule.fields.month }}）</b>
+        <b>今後の日程（{{ scheduleFields.month }}）</b>
       </h4>
-      <div class="calender text-center">
-        <b-img :src="schedule.fields.calender.fields.file.url" />
+      <div v-if="calendarUrl" class="calender text-center">
+        <b-img :src="calendarUrl" />
       </div>
     </div>
     <footer class="text-center">
@@ -49,6 +49,21 @@ const client = createClient()
 export default {
   components: {
     'common-header': Header
+  },
+  computed: {
+    scheduleFields() {
+      return (this.schedule && this.schedule.fields) || {}
+    },
+    representsFields() {
+      return (this.represents && this.represents.fields) || {}
+    },
+    calendarUrl() {
+      const calendar = this.scheduleFields.calender
+      if (!calendar || !calendar.fields || !calendar.fields.file) {
+        return ''
+      }
+      return calendar.fields.file.url
+    }
   },
   async asyncData({ env }) {
     const schedule = await client.getEntries({
